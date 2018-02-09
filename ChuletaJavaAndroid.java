@@ -55,5 +55,22 @@ startActivity(intent);
         Log.wtf("Ciclo de Vida","onDestroy");
     }
 
+	
+## GUARDAR UN ESTADO DE UN ACTIVITY
+private static final String STATE_MENSAJE = "estado_mensaje";
+@Override
+protected void onSaveInstanceState(Bundle outState) {
+	super.onSaveInstanceState(outState);
+	outState.putString(STATE_MENSAJE, //  RECIBE UNA LLAVE DE TIPO STRING
+	elemento.getText().toString());
+}
+
+@Override
+protected void onRestoreInstanceState(Bundle savedInstanceState) {
+	super.onRestoreInstanceState(savedInstanceState);
+	elemento.setText(savedInstanceState.getString(STATE_MENSAJE));
+}
+	
+	
 ## CONBINACION DE TECLAS
 ALT+INS // PARA INSERTAR METODO 
