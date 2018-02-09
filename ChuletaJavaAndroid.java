@@ -70,7 +70,28 @@ protected void onRestoreInstanceState(Bundle savedInstanceState) {
 	super.onRestoreInstanceState(savedInstanceState);
 	elemento.setText(savedInstanceState.getString(STATE_MENSAJE));
 }
-	
-	
+
+## CREAR UN ARRAY EN STRING.XML
+<string-array name="NombreArray"> //Etiqueta array
+	<item>Matematicas</item> //elementos
+	<item>Ciencias naturales</item>
+	<item>Ciencias Sociales</item>
+	<item>Lengua castellana</item>
+	<item>Fisica</item>
+	<item>Quimica</item>
+</string-array>
+
+## CARGAR UN ARRAY EN UN LISVIEW
+// FORMA PARA CARGAR EL ARREGLO A UNA VARIABLE
+String[] titulos = getResources().getStringArray(R.array.materias);
+ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,titulos);
+horario = (ListView)findViewById(R.id.lista);
+horario.setAdapter(adapter);
+
+// FORMA PARA CARGAR DIRECTAMENTE EL ARREGLO
+ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,R.array.dias_semana,android.R.layout.simple_list_item_1);
+horario = (ListView)findViewById(R.id.lista);
+horario.setAdapter(adapter);
+
 ## CONBINACION DE TECLAS
 ALT+INS // PARA INSERTAR METODO 
